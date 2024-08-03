@@ -1,0 +1,1 @@
+from https://raw.githubusercontent.com/tendermint/spec/master/spec/consensus/proposer-based-timestamp/tla/TendermintPBT_001_draft.tla
