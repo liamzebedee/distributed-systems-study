@@ -3,10 +3,16 @@ Distributed systems study
 
 ## Ideas.
 
+ - [CRDT's](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type)
  - [Kademlia](https://pdos.csail.mit.edu/~petar/papers/maymounkov-kademlia-lncs.pdf), DHT's.
    - [Sub-Second Lookups on a Large-Scale Kademlia-Based Overlay](https://www.diva-portal.org/smash/get/diva2:436670/FULLTEXT01.pdf)
- - FLP impossibility.
- - Byzantine (Albanian) Generals problem.
+ - P2P systems:
+   - [IPFS](https://arxiv.org/pdf/1407.3561)
+   - [Incentives Build Robustness in BitTorrent](https://www.bittorrent.org/bittorrentecon.pdf)
+ - Theory:
+   - FLP impossibility.
+   - Byzantine (Albanian) Generals problem.
+   - [Safety, liveness, and consistency](https://courses.cs.washington.edu/courses/cse452/20sp/slides/consistency.pdf)
  - Paxos.
  - Raft.
    - [In Search of an Understandable Consensus Algorithm](http://www.scs.stanford.edu/20sp-cs244b/sched/readings/raft.pdf)
