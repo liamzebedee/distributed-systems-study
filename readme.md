@@ -20,6 +20,7 @@ Distributed systems study
    - [Bigtable](https://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf)
    - [Chubby](https://static.googleusercontent.com/media/research.google.com/en//archive/chubby-osdi06.pdf)
    - [GFS](https://static.googleusercontent.com/media/research.google.com/en//archive/gfs-sosp2003.pdf)
+   - GFS evolution https://queue.acm.org/detail.cfm?id=1594206 
    - [Building Large-Scale Internet Services](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/44877.pdf)
    - [Spanner](https://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf#cite.0@Megastore), [Megastore](https://www.cidrdb.org/cidr2011/Papers/CIDR11_Paper32.pdf)
    - [Storage Architecture and Challenges](https://cloud.google.com/files/storage_architecture_and_challenges.pdf)
@@ -28,6 +29,8 @@ Distributed systems study
    - Blob storage https://distributed-computing-musings.com/2023/12/paper-notes-f4-facebooks-warm-blob-storage-system/ 
  - Amazon systems
    - Cassandra / DHT
+ - Two-Phase Commit
+ - Two-Phase Lock
 
 **Weird ones:**
 
@@ -49,7 +52,6 @@ Distributed systems study
 ## Academic Papers / reading list.
 
  - https://muratbuffalo.blogspot.com/2021/02/foundational-distributed-systems-papers.html 
- 
 
 ## Blogs / writers.
 
@@ -59,5 +61,17 @@ Distributed systems study
 
 ## Software.
 
- - LevelDB, RocksDB.
+ - LevelDB
+ - RocksDB.
+ - SQLite
+ - [RQLite](https://rqlite.io/docs/design/) - distributed sqlite.
+ - FoundationDB - bought and open-sourced by Apple in 2015
 
+
+## Scraps
+
+**Google Spanner runs two-phase commit over Paxos**
+
+https://stackoverflow.com/questions/59243408/why-does-google-spanner-use-both-two-phase-commit-and-paxos
+
+To understand partitions, we need to know a little bit more about how Spanner works. As with most ACID databases, Spanner uses two-phase commit (2PC) and strict two-phase locking to ensure isolation and strong consistency. 2PC has been called the “anti-availability” protocol [Hel16] because all members must be up for it to work. Spanner mitigates this by having each member be a Paxos group, thus ensuring each 2PC “member” is highly available even if some of its Paxos participants are down. Data is divided into groups that form the basic unit of placement and replication.
